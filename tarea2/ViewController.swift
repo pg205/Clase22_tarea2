@@ -16,6 +16,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var result: UILabel!
     
+    @IBOutlet weak var wins: UILabel!
+    
+    @IBOutlet weak var defeats: UILabel!
+    
+    var countWins = 0
+    
+    var countDefeats = 0
+    
+    
     func rivalOpption(){
         
         var generator = Int(random())
@@ -37,7 +46,17 @@ class ViewController: UIViewController {
         
         else {
             
-            rival.image = UIImage(named: "piedra.jpg")
+            generator = Int(random())
+            
+            if generator % 2 == 0 {
+                
+                rival.image = UIImage(named: "piedra.jpg")
+            }
+                
+            else {
+                
+                rival.image = UIImage(named: "papel.jpg")
+            }
         }
     }
     
@@ -56,11 +75,19 @@ class ViewController: UIViewController {
         if rival.image == UIImage(named: "papel.jpg") {
             
             result.text = "Lose"
+            
+            countDefeats++
+            
+            defeats.text = "Defeats: \(countDefeats)"
         }
         
         if rival.image == UIImage(named: "tijeras.png") {
             
             result.text = "Win"
+            
+            countWins++
+            
+            wins.text = "Wins: \(countWins)"
         }
         
         
@@ -83,11 +110,19 @@ class ViewController: UIViewController {
         if rival.image == UIImage(named: "tijeras.png") {
             
             result.text = "Lose"
+            
+            countDefeats++
+            
+            defeats.text = "Defeats: \(countDefeats)"
         }
         
         if rival.image == UIImage(named: "piedra.jpg") {
             
             result.text = "Win"
+            
+            countWins++
+            
+            wins.text = "Wins: \(countWins)"
         }
         
         //result.text = "acaba boton 2"
@@ -107,11 +142,19 @@ class ViewController: UIViewController {
         if rival.image == UIImage(named: "piedra.jpg") {
             
             result.text = "Lose"
+            
+            countDefeats++
+            
+            defeats.text = "Defeats: \(countDefeats)"
         }
         
         if rival.image ==  UIImage(named: "papel.jpg") {
             
             result.text = "Win"
+            
+            countWins++
+            
+            wins.text = "Wins: \(countWins)"
         }
         
         //result.text = "acaba boton 3"
